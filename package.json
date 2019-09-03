@@ -1,0 +1,22 @@
+{
+  "name": "rx-vue",
+  "version": "1.0.0",
+  "description": "like rxjs store vue data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "store",
+    "vue"
+  ],
+  "author": "like",
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "css-loader": "^3.2.0",
+    "es6-promise": "^4.2.8",
+    "vue": "^2.6.10",
+    "webpack": "^4.39.2"
+  }
+}
