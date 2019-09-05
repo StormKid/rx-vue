@@ -4,7 +4,7 @@
     "description": "like rxjs store vue data",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "lint": "eslint src"
     },
     "keywords": [
         "store",
@@ -19,6 +19,8 @@
         "babel-loader": "^8.0.6",
         "babel-polyfill": "^6.26.0",
         "css-loader": "^3.2.0",
+        "eslint": "^6.3.0",
+        "eslint-plugin-vue-libs": "^4.0.0",
         "style-loader": "^1.0.0",
         "stylus": "^0.54.7",
         "stylus-loader": "^3.0.2",
@@ -27,5 +29,13 @@
         "vue-template-compiler": "^2.6.10",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.7"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/StormKid/rx-vuex.git"
+    },
+    "bugs": {
+        "url": "https://github.com/StormKid/rx-vuex/issues"
+    },
+    "homepage": "https://github.com/StormKid/rx-vuex#readme"
 }
