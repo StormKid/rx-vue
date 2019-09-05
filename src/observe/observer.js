@@ -2,9 +2,13 @@
  *  公共装饰器
  *  @author like
  */
+import { Pool } from '../subject/store.pool'
+
 export class Observer {
-    constructor() {
 
+    data = {}
 
+    subscribe(fn) {
+        fn(this.data)
     }
 }

@@ -7,24 +7,24 @@
  * 处理根部件
  */
 const cache = new Map()
-let rxVue
+let vm
 
 export class Pool {
 
 }
 
-export function putCache (key, value) {
-  cache.set(key, value)
+export function putCache(key, value) {
+    cache.set(key, value)
 }
 
-export function install (Vue, option) {
-  if (rxVue && rxVue === Vue) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.error(
-        '[rxvuex] already installed. Vue.use(RxVuex) should be called only once.'
-      )
+export function install(Vue, option) {
+    if (vm && vm === Vue) {
+        if (process.env.NODE_ENV !== 'production') {
+            console.error(
+                '[RxVuex] already installed. Vue.use(RxVuex) should be called only once.'
+            )
+        }
+        return
     }
-    return
-  }
-  rxVue = Vue
+    vm = Vue
 }
