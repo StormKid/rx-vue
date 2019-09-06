@@ -8,14 +8,14 @@
  */
 export const cache = new Map()
 let vm
-
+    /**
+     * 根据传入的信息变化的data
+     */
+const changeData = {}
 export class Pool {
 
 }
 
-export function putCache(key, value) {
-    cache.set(key, value)
-}
 
 export function install(Vue, option) {
     if (vm && vm === Vue) {

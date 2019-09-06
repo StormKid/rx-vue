@@ -10,3 +10,7 @@ export class Observer {
         fn(cache.get(dataKey))
     }
 }
+
+export class Observable {
+
+}
