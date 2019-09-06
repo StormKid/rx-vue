@@ -11,7 +11,8 @@
         "vue"
     ],
     "files": [
-        "lib"
+        "lib",
+        "types"
     ],
     "author": "like",
     "license": "MIT",
