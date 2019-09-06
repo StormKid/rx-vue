@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "rx-vuex": "^0.0.2",
+    "rx-vuex": "^0.0.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
