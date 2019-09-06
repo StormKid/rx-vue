@@ -5791,6 +5791,11 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+rx-vuex@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/rx-vuex/-/rx-vuex-0.0.2.tgz#08c8716c6806e065dd21a4577a4b661155f1d9a0"
+  integrity sha512-n1iL1ikkhOFJnYnlBMvD3EyYPKhrsTlFQSiSd7MK/aZ+WOvb+RS6KZtaQps+q7B5gYXWm0ce7RQ7NjAnPqSurw==
+
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"

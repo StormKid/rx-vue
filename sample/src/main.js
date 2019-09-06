@@ -3,13 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+// import rxvuex from 'rx-vuex'
 Vue.config.productionTip = false
-
-/* eslint-disable no-new */
+    // Vue.use(rxvuex)
+    /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
 })
