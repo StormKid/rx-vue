@@ -6,7 +6,7 @@
 /**
  * 处理根部件
  */
-const cache = new Map()
+export const cache = new Map()
 let vm
 
 export class Pool {

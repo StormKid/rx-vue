@@ -2,13 +2,11 @@
  *  公共装饰器
  *  @author like
  */
-import { Pool } from '../subject/store.pool'
-
+import { Pool, cache } from '../subject/store.pool'
+import { dataKey } from '../constants'
 export class Observer {
 
-    data = {}
-
     subscribe(fn) {
-        fn(this.data)
+        fn(cache.get(dataKey))
     }
 }
