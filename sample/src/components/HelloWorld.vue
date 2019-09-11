@@ -1,3 +1,4 @@
+
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
@@ -90,7 +91,9 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  mounted() {
+  },
 }
 </script>
 

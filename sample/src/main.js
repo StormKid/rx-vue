@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-const RxVuex = require('rx-vuex')
+import RxVuex from 'rx-vuex'
 Vue.config.productionTip = false
 Vue.use(RxVuex)
 new Vue({
