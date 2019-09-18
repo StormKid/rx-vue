@@ -7,8 +7,18 @@
 
 <script>
 export default {
-  name: 'App'
+  data() {
+    return {
+       name:'value'
+    }
+  },
+  mounted() {
+  console.log('====================================');
+  console.log(this);
+  console.log('====================================');
 }
+}
+
 </script>
 
 <style>

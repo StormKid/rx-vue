@@ -1,5 +1,8 @@
 {
   "root": true,
+  "preset" : [
+    "es2015"
+  ],
   "extends": [
     "plugin:vue-libs/recommended"
   ]
