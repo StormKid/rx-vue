@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <v-btn round color="primary" dark>{{name|real(vue)}}</v-btn>
     <router-view/>
   </div>
 </template>
@@ -9,14 +10,21 @@
 export default {
   data() {
     return {
-       name:'value'
+       name:'value',
+       vue:this
     }
   },
-  mounted() {
-  console.log('====================================');
-  console.log(this);
-  console.log('====================================');
-}
+   filters: {
+      real(value,vue){
+          console.log('===============vue=====================');
+          console.log(vue);
+          console.log('====================================');
+          console.log('================value====================');
+          console.log(value);
+          console.log('====================================');
+      }
+   }
+
 }
 
 </script>
