@@ -1,13 +1,12 @@
 {
     "name": "rx-vuex",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "like rxjs store vue data",
     "main": "index.js",
     "typings": "types/index.d.ts",
     "module": "lib/rxvuex.js",
     "unpkg": "lib/rxvuex.js",
     "jsdelivr": "lib/rxvuex.js",
-    "private": true,
     "scripts": {
         "lint": "eslint src",
         "build": "webpack --mode=development --config  ./build/build.js "
@@ -24,6 +23,7 @@
     "devDependencies": {
         "@babel/cli": "^7.6.2",
         "@babel/core": "^7.6.2",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/plugin-transform-arrow-functions": "^7.2.0",
         "@babel/plugin-transform-runtime": "^7.6.2",
         "@babel/polyfill": "^7.6.0",
@@ -35,6 +35,7 @@
         "eslint-plugin-vue-libs": "^4.0.0",
         "lodash": "^4.17.15",
         "style-loader": "^1.0.0",
+        "tern": "^0.24.1",
         "vue": "^2.6.10",
         "vue-loader": "^15.7.1",
         "vue-template-compiler": "^2.6.10",

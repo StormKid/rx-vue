@@ -16,13 +16,11 @@ export class Pool {
         if (!cache.get(vmKey) && typeof window !== 'undefined' && window.Vue) {
             install(window.Vue)
         }
-        cache.set(dataKey, changeData)
-
     }
 }
 
 
-export function install(Vue, option) {
+export function install(Vue) {
     if (cache.get(vmKey) && cache.get(vmKey) === Vue) {
         if (process.env.NODE_ENV !== 'production') {
             console.error(

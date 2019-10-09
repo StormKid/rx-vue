@@ -18,7 +18,8 @@ module.exports = {
                     presets: ["@babel/preset-env"], //转码规则
                     plugins: [
                         require("@babel/plugin-transform-runtime"),
-                        require("@babel/plugin-transform-arrow-functions")
+                        require("@babel/plugin-transform-arrow-functions"),
+                        require("@babel/plugin-proposal-class-properties")
                     ]
                 }
             }
