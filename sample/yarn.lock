@@ -5791,10 +5791,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rx-vuex@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/rx-vuex/-/rx-vuex-0.0.7.tgz#9d908ca29dfd528411d1f34190ec7cdeb12f9913"
-  integrity sha512-FZDhtGcpeixMqGnSKAx8SW5+6igNQwrrBuzvXZGxa7xGtGvuY0OotSPJfp1/34UNx4i+s56akH7z6l08p8S+dg==
+rx-vuex@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/rx-vuex/-/rx-vuex-0.0.8.tgz#017e58aeb77fff67a7dd0a65846a9786a286a407"
+  integrity sha512-JQftL2eL26mOIJdRTU2vEPnHoFXwDzgixDXoNYbdi8cMR6kdoPon0nmSssjJ1VRcBe6vLo4q/x9pOWxS40J7Mw==
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"

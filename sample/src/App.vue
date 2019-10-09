@@ -6,32 +6,15 @@
 </template>
 
 <script>
+import rxvuex from "rx-vuex";
 export default {
   data() {
     return {
       name: "66666"
     };
   },
-  created() {
-    console.log("==============created======================");
-    console.log(this.$router.resolveHooks);
-    console.log("====================================");
-  },
   mounted() {
     this.$data.demoQ = "DemoQiang";
-    console.log("==============mounted======================");
-    console.log(this.$router.resolveHooks);
-    console.log("====================================");
-  },
-  beforeCreate() {
-    console.log("================beforeCreate====================");
-    console.log(this.$router.resolveHooks);
-    console.log("====================================");
-  },
-  updated() {
-    console.log('===================updated=================');
-     console.log(this.$router.resolveHooks);
-     console.log('====================================');
   },
 
 };
