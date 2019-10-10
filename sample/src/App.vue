@@ -15,7 +15,7 @@ export default {
   },
   mounted() {
     console.log('====================================');
-    console.log(rxvuex);
+    console.log(rxvuex.Subject);
     console.log('====================================');
   },
 

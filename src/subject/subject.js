@@ -14,14 +14,13 @@ export class Subject {
      */
     routeKey = null
     constructor() {
-        if (this.singleSubject == null) {
-            this.singleSubject = new Subject()
+        if (singleSubject == null) {
+            singleSubject = new Subject()
         }
-        this.initSingle()
+        initSingle()
     }
     initSingle() {
-        const self = this
-        if (self.singleSubject == null) {
+        if (singleSubject == null) {
             return
         }
 
@@ -29,10 +28,10 @@ export class Subject {
          * subscribe router
          * 注册路由
          */
-        self.singleSubject.prototype.subscribe = function subscribe(vue) {
-            self.routeKey = vue.$route.name
+        singleSubject.prototype.subscribe = function subscribe(vue) {
+            routeKey = vue.$route.name
             const changeData = {
-                routeKey: self.routeKey
+                routeKey: routeKey
             }
             cache.set(dataKey, changeData)
         }
@@ -41,7 +40,7 @@ export class Subject {
          * save value
          * 储存value
          */
-        self.singleSubject.prototype.next = function next(key, value) {
+        singleSubject.prototype.next = function next(key, value) {
             cache.set(key, value)
         }
 
@@ -49,7 +48,7 @@ export class Subject {
          * clean cache
          * 清理缓存
          */
-        self.singleSubject.prototype.clear = function clear() {
+        singleSubject.prototype.clear = function clear() {
             cache.clear()
             cache.set(vmKey, vm)
         }
@@ -58,7 +57,7 @@ export class Subject {
          * delete one value
          * 删除某个值
          */
-        self.singleSubject.prototype.remove = function remove(key) {
+        singleSubject.prototype.remove = function remove(key) {
             cache.delete(key)
         }
 
@@ -66,7 +65,7 @@ export class Subject {
          * find one value
          * 获取某个值
          */
-        self.singleSubject.prototype.getValue = function getValue(key) {
+        singleSubject.prototype.getValue = function getValue(key) {
             cache.get(key)
         }
 
@@ -74,13 +73,13 @@ export class Subject {
          * to test Api
          * 供给测试API
          */
-        self.singleSubject.prototype.getJson = function getJson() {
+        singleSubject.prototype.getJson = function getJson() {
             return cache.toJSON()
         }
     }
 }
 
-export const subject = singleSubject
+const subject = singleSubject
 
 export default {
     subject
