@@ -2,10 +2,9 @@
  *  公共装饰器
  *  @author like
  */
-const observers = []
+// const observers = []
 
 export class Observer {
-
 
 }
 

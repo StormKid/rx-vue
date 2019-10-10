@@ -4,9 +4,9 @@
  */
 import { Observer } from './observe/observer'
 import { Subject } from './subject/subject'
-import { Pool } from "./store.pool";
+import { Pool } from './store.pool'
 export default {
-    Observer,
-    Subject,
-    Pool,
+  Observer,
+  Subject,
+  Pool
 }

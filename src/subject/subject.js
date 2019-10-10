@@ -6,21 +6,18 @@ import { cache } from '../store.pool'
 import { vmKey, dataKey } from '../constants'
 
 const vm = cache.get(vmKey)
-const changeData = cache.get(dataKey)
+let singleSubject = null
 export class Subject {
-
     /**
      * for route easy post
      * 用来处理路由的传输数据
      */
     routeKey = null
-    singleSubject = null
     constructor() {
         if (this.singleSubject == null) {
             this.singleSubject = new Subject()
         }
         this.initSingle()
-
     }
     initSingle() {
         const self = this
@@ -34,9 +31,10 @@ export class Subject {
          */
         self.singleSubject.prototype.subscribe = function subscribe(vue) {
             self.routeKey = vue.$route.name
-            changeData = {
+            const changeData = {
                 routeKey: self.routeKey
             }
+            cache.set(dataKey, changeData)
         }
 
         /**
@@ -55,7 +53,6 @@ export class Subject {
             cache.clear()
             cache.set(vmKey, vm)
         }
-
 
         /**
          * delete one value
@@ -80,10 +77,11 @@ export class Subject {
         self.singleSubject.prototype.getJson = function getJson() {
             return cache.toJSON()
         }
-
     }
+}
 
+export const subject = singleSubject
 
-
-
+export default {
+    subject
 }

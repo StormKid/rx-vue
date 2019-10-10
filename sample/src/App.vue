@@ -14,7 +14,9 @@ export default {
     };
   },
   mounted() {
-    this.$data.demoQ = "DemoQiang";
+    console.log('====================================');
+    console.log(rxvuex);
+    console.log('====================================');
   },
 
 };

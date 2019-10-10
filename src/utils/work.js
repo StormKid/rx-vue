@@ -3,6 +3,6 @@
  * @author like
  */
 
-export function initWork() {
+export function initWork () {
 
 }
