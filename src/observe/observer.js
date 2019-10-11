@@ -4,7 +4,7 @@
  */
 // const observers = []
 
-export class Observer {
+export default class Observer {
 
 }
 

@@ -6,41 +6,42 @@ import { cache } from '../store.pool'
 import { vmKey, dataKey } from '../constants'
 
 const vm = cache.get(vmKey)
-let singleSubject = null
-export class Subject {
+
+export default class Subject {
+    subject
     /**
      * for route easy post
      * 用来处理路由的传输数据
      */
-    routeKey = null
     constructor() {
-        if (singleSubject == null) {
-            singleSubject = new Subject()
+        if (this.subject) {
+            this.initSingle()
+        } else {
+            this.subject = new Subject()
         }
-        initSingle()
     }
     initSingle() {
-        if (singleSubject == null) {
-            return
-        }
-
         /**
          * subscribe router
          * 注册路由
          */
-        singleSubject.prototype.subscribe = function subscribe(vue) {
-            routeKey = vue.$route.name
+        this.subject.prototype.subscribe = function subscribe(vue) {
+            if (vue.subject) {
+                this.subject = vue.subject
+            }
+            const routeKey = vue.$route.name
             const changeData = {
-                routeKey: routeKey
+                routeKey
             }
             cache.set(dataKey, changeData)
+            vue.prototype.subject = this.subject // 双向绑定
         }
 
         /**
          * save value
          * 储存value
          */
-        singleSubject.prototype.next = function next(key, value) {
+        this.subject.prototype.next = function next(key, value) {
             cache.set(key, value)
         }
 
@@ -48,7 +49,7 @@ export class Subject {
          * clean cache
          * 清理缓存
          */
-        singleSubject.prototype.clear = function clear() {
+        this.subject.prototype.clear = function clear() {
             cache.clear()
             cache.set(vmKey, vm)
         }
@@ -57,7 +58,7 @@ export class Subject {
          * delete one value
          * 删除某个值
          */
-        singleSubject.prototype.remove = function remove(key) {
+        this.subject.prototype.remove = function remove(key) {
             cache.delete(key)
         }
 
@@ -65,7 +66,7 @@ export class Subject {
          * find one value
          * 获取某个值
          */
-        singleSubject.prototype.getValue = function getValue(key) {
+        this.subject.prototype.getValue = function getValue(key) {
             cache.get(key)
         }
 
@@ -73,14 +74,8 @@ export class Subject {
          * to test Api
          * 供给测试API
          */
-        singleSubject.prototype.getJson = function getJson() {
+        this.subject.prototype.getJson = function getJson() {
             return cache.toJSON()
         }
     }
-}
-
-const subject = singleSubject
-
-export default {
-    subject
 }

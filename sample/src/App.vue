@@ -7,6 +7,7 @@
 
 <script>
 import rxvuex from "rx-vuex";
+import {Subject} from 'rx-vuex'
 export default {
   data() {
     return {
@@ -15,7 +16,7 @@ export default {
   },
   mounted() {
     console.log('====================================');
-    console.log(rxvuex.Subject);
+    console.log(Subject);
     console.log('====================================');
   },
 

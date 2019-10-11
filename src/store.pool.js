@@ -7,7 +7,7 @@ import { vmKey } from './constants'
  * 处理根部件
  */
 export const cache = new Map()
-export class Pool {
+export default class Pool {
   constructor () {
     if (!cache.get(vmKey) && typeof window !== 'undefined' && window.Vue) {
       install(window.Vue)
