@@ -54,9 +54,6 @@ export default {
        ddd:'eee'
     }));
     console.log("====================================");
-     console.log("=================map===================");
-    console.log(this.RxVuex.subject.next("kkk","ewww"));
-    console.log("====================================");
   },
   methods: {
     toInner() {

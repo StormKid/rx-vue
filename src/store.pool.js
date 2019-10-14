@@ -1,12 +1,14 @@
 import { vmKey } from './constants'
-
+import VNode from 'vue'
+import VNodeDirective from 'vue'
 /**
  * 采取多种方式存储防止数据刷新消逝
  * @author like
  */
 
-export default class Store {
+export default class Store extends VNode {
   constructor (vue) {
+    super()
     this.vue = vue
   }
 
@@ -15,11 +17,15 @@ export default class Store {
      * 创建缓存
      */
   createCache () {
-    if (!window.cache) {
-      this.cache = new Map()
-      window.cache = this.cache
+    this.data.keepAlive = true
+    this.componentInstance = this.vue
+    if (this.data) {
+      this.cache = this.data.directives[0]
     } else {
-      this.cache = window.cache
+      this.cache = new Map()
+      const direct = new VNodeDirective()
+      direct.value = this.cache
+      this.data.directives.push(direct)
     }
   }
 
@@ -29,7 +35,7 @@ export default class Store {
      */
   save (key, value) {
     this.cache.set(key, value)
-    window.cache = this.cache
+    this.data.directives[0] = this.cache
   }
 
   /**
@@ -37,8 +43,8 @@ export default class Store {
      * 获取某个值
      */
   getValue (key) {
-    if (window.cache) {
-      return window.cache.get(key)
+    if (this.data.directives[0]) {
+      return this.data.directives[0].get(key)
     } else {
       return this.cache.get(key)
     }
@@ -49,10 +55,11 @@ export default class Store {
      * 删除某个值
      */
   remove (key) {
-    if (window.cache) {
-      return window.cache.delete(key)
+    if (this.data.directives[0]) {
+      this.data.directives[0].delete(key)
     } else {
-      return this.cache.delete(key)
+      this.cache.delete(key)
+      this.data.directives[0] = this.cache
     }
   }
 
@@ -62,9 +69,12 @@ export default class Store {
      */
   clear () {
     this.cache.clear()
-    if (this.vue) { this.cache.set(vmKey, this.vue) } else {
+    if (this.vue) {
+      this.cache.set(vmKey, this.vue)
+      this.data.directives[0] = this.cache
+    } else {
       console.error(
-        'function subscribe is not be used'
+        'no use RxVuex'
       )
     }
   }
