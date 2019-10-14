@@ -6131,10 +6131,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rx-vuex@^0.0.36:
-  version "0.0.36"
-  resolved "https://registry.yarnpkg.com/rx-vuex/-/rx-vuex-0.0.36.tgz#aaa3f6ada8a7f5720da53f3d5ca7663f3c1c348a"
-  integrity sha512-maeS2l9ly0iDTlxJpxo/QTaXlv2jDtPlibuud0bzJhmc1U2aHQiZdrbCqKtJCdUKWEdwSjVLSsrx+K8UUeb5tw==
+rx-vuex@^0.0.42:
+  version "0.0.42"
+  resolved "https://registry.yarnpkg.com/rx-vuex/-/rx-vuex-0.0.42.tgz#cb27727158894a8bbf7036d4e9987f5fbec6b411"
+  integrity sha512-6AL3XBmMLyD60+arliZYXUCJH/vmXzs36tRHVpBYIUwt5cTg9V9JvOqFaa35VobIxGYmh/ZVZvHpMvw7mK4XSA==
 
 rxjs@^6.4.0:
   version "6.5.3"

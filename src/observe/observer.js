@@ -3,10 +3,9 @@
  *  @author like
  */
 export default class Observer {
-
-    constructor(cache) {
-        this.cache = cache
-    }
+  constructor (cache) {
+    this.cache = cache
+  }
 }
 
 export class Observable {

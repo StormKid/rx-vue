@@ -4,7 +4,7 @@
  */
 import Observer from './observe/observer'
 import Subject from './subject/subject'
-import Pool from './store.pool'
+import Store from './store.pool'
 import { vmKey } from './constants'
 /**
  * 处理根部件
@@ -12,8 +12,9 @@ import { vmKey } from './constants'
 const RxVuex = {}
 
 RxVuex.install = function install (Vue, options) {
-  const cache = new Map()
-  if (cache.get(vmKey) && cache.get(vmKey) === Vue) {
+  const store = new Store(Vue)
+  store.createCache()
+  if (store.getValue(vmKey) && store.getValue(vmKey) === Vue) {
     if (process.env.NODE_ENV !== 'production') {
       console.error(
         '[RxVuex] already installed. Vue.use(RxVuex) should be called only once.'
@@ -21,16 +22,15 @@ RxVuex.install = function install (Vue, options) {
     }
     return
   }
-  const subject = new Subject(cache)
-  const observer = new Observer(cache)
-  const pool = new Pool(cache)
+  const subject = new Subject(store)
+  const observer = new Observer(store)
   const rxvuex = {
     subject,
     observer,
-    pool
+    store
   }
   Vue.prototype.RxVuex = rxvuex
-  cache.set(vmKey, Vue)
+  store.save(vmKey, Vue)
 }
 
 export default RxVuex

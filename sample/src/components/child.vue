@@ -8,7 +8,7 @@
 export default {
     mounted(){
         console.log('================child====================');
-        console.log(this.RxVuex.subject.cache.get('yuanzi'));
+        console.log(this.RxVuex.store.cache)
         console.log('====================================');
     }
 }
