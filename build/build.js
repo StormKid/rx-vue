@@ -19,6 +19,11 @@ module.exports = {
                     plugins: [
                         require("@babel/plugin-transform-runtime"),
                         require("@babel/plugin-transform-arrow-functions"),
+                        require("@babel/polyfill"),
+                        require("@babel/plugin-transform-classes"),
+                        require("@babel/plugin-transform-property-mutators"),
+                        require("@babel/plugin-transform-computed-properties"),
+                        require("@babel/plugin-transform-function-name"),
                         require("@babel/plugin-proposal-class-properties")
                     ]
                 }
