@@ -1,6 +1,6 @@
 {
     "name": "rx-vuex",
-    "version": "0.0.26",
+    "version": "0.0.27",
     "description": "like rxjs store vue data",
     "main": "index.js",
     "module": "lib/rxvuex.js",
