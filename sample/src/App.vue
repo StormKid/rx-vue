@@ -14,9 +14,6 @@ export default {
     };
   },
   mounted() {
-    console.log('================USE====================');
-    console.log(this.RxVuex.subject.subscribe);
-    console.log('====================================');
   },
 
 };
