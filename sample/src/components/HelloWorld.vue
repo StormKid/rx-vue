@@ -49,10 +49,7 @@ export default {
   },
   mounted() {
     console.log("=================map===================");
-    console.log(this.RxVuex.subject.next("yuanzi", {
-       bbb:'ccc',
-       ddd:'eee'
-    }));
+    console.log(this);
     console.log("====================================");
   },
   methods: {
