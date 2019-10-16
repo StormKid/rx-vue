@@ -1,39 +1,33 @@
 /**
- * 注册监听
+ * 介入者
  * @author like
  */
-import { dataKey } from '../constants'
+
+import Observer from '../observe/observer'
 export default class Subject {
-    /**
-     * for route easy post
-     * 用来处理路由的传输数据
+  /**
+     * for easy post
+     * 用来管理传输数据
      */
-    constructor(store, option) {
-            this.store = store
-            this.isAsync = option.isAsync
-        }
-        /**
-         * subscribe router
-         * 注册路由
+  constructor (store, option) {
+    this.store = store
+    this.observer = new Observer(store)
+  }
+  /**
+         * subscribe
+         * 注册
          */
-    subscribe(vue) {
-        this.vm = vue
-        if (vue.subject) {
-            this.subject = vue.subject
-        }
-        const routeKey = vue.$route.name
-        this.changeData = {
-            routeKey
-        }
-        this.store.init(vue)
-    }
+  subscribe (vue) {
+    this.store.init(vue)
+    return this.observer.complete()
+  }
 
-    /**
-     * save value
-     * 储存value
-     */
-    next(key, value) {
-        this.store.save(key, value)
-
+  post (key, value) {
+    let data = this.observer.complete()
+    if (!data) {
+      data = new Map()
     }
+    data.set(key, value)
+    this.observer.next(data)
+  }
 }

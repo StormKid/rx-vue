@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import rxvuex from "rx-vuex";
 export default {
   data() {
     return {
