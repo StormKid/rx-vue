@@ -16,11 +16,7 @@ export default {
     };
   },
   mounted() {
-    this.RxVuex.subscribe(this)
     this.RxVuex.post("keykeykey","jdjdjjdjdjd")
-    console.log('====================================');
-    console.log(this.cache);
-    console.log('====================================');
   },
   methods: {
     toInner() {
