@@ -16,7 +16,6 @@ export default {
     };
   },
   mounted() {
-    this.RxVuex.post("keykeykey","jdjdjjdjdjd")
   },
   methods: {
     toInner() {
