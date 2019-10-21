@@ -2,6 +2,10 @@
  * 处理路由
  * @author like
  */
-export class RouterHelper {
+import Router from 'vue-router'
 
+export class RouterHelper {
+  init (vue) {
+    new Router()
+  }
 }

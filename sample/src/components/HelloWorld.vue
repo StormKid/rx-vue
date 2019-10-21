@@ -16,6 +16,7 @@ export default {
     };
   },
   mounted() {
+    this.RxVuex.subscribe(this).post("key","77777")
   },
   methods: {
     toInner() {

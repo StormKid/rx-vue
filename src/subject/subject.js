@@ -11,7 +11,8 @@ export default class Subject {
      */
   constructor (store, option) {
     this.store = store
-    this.observer = new Observer(store)
+    this.observer = new Observer()
+    this.observer.init(store)
   }
   /**
          * subscribe
@@ -19,7 +20,8 @@ export default class Subject {
          */
   subscribe (vue) {
     this.store.init(vue)
-    return this.observer.complete()
+    this.observer.init(this.store)
+    return this
   }
 
   post (key, value) {
@@ -29,5 +31,9 @@ export default class Subject {
     }
     data.set(key, value)
     this.observer.next(data)
+  }
+
+  on () {
+    return this.observer.complete()
   }
 }

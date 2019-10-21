@@ -3,23 +3,31 @@
  *  @author like
  */
 export default class Observer {
-  constructor (store) {
+  constructor () {
+    this.on = true
+  }
+
+  init (store) {
     this.store = store
   }
 
   next (value) {
-    const routeKey = this.store.vue.$route.name
-    this.store.save(routeKey, value)
+    if (this.store.vue.$router && this.on) {
+      this.on = false
+      this.store.vue.$router.beforeEach((to, from, next) => {
+        this.routeKey = to.name
+        this.store.save(this.routeKey, value)
+        next()
+      })
+    }
   }
 
   close () {
-    const routeKey = this.store.vue.$route.name
-    this.store.remove(routeKey)
+    this.store.remove(this.routeKey)
   }
 
   complete () {
-    const routeKey = this.store.vue.$route.name
-    const result = this.store.getValue(routeKey)
+    const result = this.store.getValue(this.routeKey)
     return result
   }
 }

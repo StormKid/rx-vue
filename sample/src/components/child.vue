@@ -8,7 +8,7 @@
 export default {
     mounted(){
         console.log('================child====================');
-        console.log(this.cache)
+        console.log(this.RxVuex.subscribe(this).on())
         console.log('====================================');
     }
 }
