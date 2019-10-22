@@ -1,4 +1,3 @@
-import { vmKey } from './constants'
 /**
  * 采取多种方式存储防止数据刷新消逝
  * @author like
@@ -29,6 +28,7 @@ export default class Store {
   save (key, value) {
     if (this.vue.cache) {
       this.vue.cache.set(key, value)
+      this.cache = this.vue.cache
     } else {
       this.cache.set(key, value)
       this.vue.prototype.cache = this.cache
@@ -54,6 +54,7 @@ export default class Store {
   remove (key) {
     if (this.vue.cache) {
       this.vue.cache.delete(key)
+      this.cache = this.vue.cache
     } else {
       this.cache.delete(key)
       this.vue.prototype.cache = this.cache
@@ -65,22 +66,44 @@ export default class Store {
      * 清理缓存
      */
   clear () {
-    this.cache.clear()
-    if (this.vue) {
-      this.cache.set(vmKey, this.vue)
-      this.vue.prototype.cache = this.cache
+    if (this.vue.cache) {
+      this.vue.cache.clear()
+      this.cache = this.vue.cache
     } else {
-      console.error(
-        'no use RxVuex'
-      )
+      this.cache.clear()
+      this.vue.prototype.cache = this.cache
     }
   }
 
   toJson () {
     if (this.vue.cache) {
-      return this.vue.cache.toJSON()
+      return this.initJson(this.vue.cache)
     } else {
-      return this.cache.toJSON()
+      return this.initJson(this.cache)
     }
+  }
+
+  toMap (jsonString) {
+    const json = JSON.parse(jsonString)
+    const map = this.initMap(json)
+    this.vue.prototype.cache = map
+    this.cache = this.vue.cache
+    return map
+  }
+
+  initJson (map) {
+    const json = {}
+    for (const [key, value] of map) {
+      json[key] = value
+    }
+    return json
+  }
+
+  initMap (json) {
+    const map = new Map()
+    for (const key in json) {
+      map.set(key, json[key])
+    }
+    return map
   }
 }

@@ -16,13 +16,21 @@ export default {
     };
   },
   mounted() {
-    this.RxVuex.subscribe(this).post("key","77777")
+    this.RxVuex.subscribe(this).post("key", "77777");
   },
   methods: {
     toInner() {
       this.$router.push({
         name: "inner"
       });
+    },
+    callback(data) {
+      if (data.get("key") == "666") {
+        return true;
+      } else {
+        this.$router.go(0);
+        return false;
+      }
     }
   }
 };
@@ -33,7 +41,7 @@ export default {
 h1,
 h2 {
   font-weight: normal;
-  }
+}
 ul {
   list-style-type: none;
   padding: 0;

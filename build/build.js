@@ -24,7 +24,7 @@ module.exports = {
                         require("@babel/plugin-transform-computed-properties"),
                         require("@babel/plugin-transform-function-name"),
                         require("@babel/plugin-proposal-class-properties"),
-                        require("@babel/plugin-syntax-function-bind")
+                        require("@babel/plugin-syntax-function-bind"),
                     ]
                 }
             }

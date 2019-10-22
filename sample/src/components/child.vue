@@ -5,10 +5,14 @@
 </template>
 
 <script>
+
 export default {
     mounted(){
-        console.log('================child====================');
-        console.log(this.RxVuex.subscribe(this).on())
+        console.log('==================children==================');
+        console.log(localStorage.getItem('RX-VUEX'));
+        console.log('====================================');
+           console.log('==================children==================');
+        console.log(this.cache);
         console.log('====================================');
     }
 }

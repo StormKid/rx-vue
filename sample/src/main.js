@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import RxVuex from 'rx-vuex'
-Vue.use(RxVuex)
+Vue.use(RxVuex, {})
 new Vue({
     el: '#app',
     router,

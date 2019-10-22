@@ -2,5 +2,4 @@
  * 常量
  * @author like
  */
-
-export const vmKey = 'VM_KEY'
+export const LOCAL_KEY = 'RX-VUEX'
