@@ -1,9 +1,8 @@
 {
     "name": "rx-vuex",
-    "version": "0.1.22",
+    "version": "0.1.23",
     "description": "like rxjs store vue data",
     "main": "index.js",
-    "typings": "types/index.d.ts",
     "module": "lib/rxvuex.js",
     "unpkg": "lib/rxvuex.js",
     "jsdelivr": "lib/rxvuex.js",
@@ -15,8 +14,7 @@
         "rx-vuex"
     ],
     "files": [
-        "lib",
-        "types"
+        "lib"
     ],
     "author": "like",
     "license": "MIT",
