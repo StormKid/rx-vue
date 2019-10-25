@@ -86,8 +86,10 @@ export default class Store {
   toMap (jsonString) {
     const json = JSON.parse(jsonString)
     const map = this.initMap(json)
-    this.vue.prototype.cache = map
-    this.cache = this.vue.cache
+    if (map) {
+      this.vue.prototype.cache = map
+      this.cache = this.vue.cache
+    }
     return map
   }
 

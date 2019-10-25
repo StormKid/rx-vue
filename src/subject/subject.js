@@ -4,7 +4,6 @@
  */
 
 import Observer from '../observe/observer'
-import { LOCAL_KEY } from '../constants'
 export default class Subject {
     /**
      * for easy post
@@ -53,6 +52,4 @@ export default class Subject {
         const result = data.get(key)
         return result
     }
-
-
 }
